@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="./jquery.min.js"></script>
+<style>
+	*{
+		margin: 0;
+		padding:0;
+		list-style: none;
+	}
+	.floor{
+		width: 100%;
+		height:900px;
+		line-height: 900px;
+		color:#fff;
+		font-size: 30px;
+		text-align: center;
+	}
+	.floor1{
+		background:#666600;
+	}
+	.floor2{
+		background:#660000;
+	}
+	.floor3{
+		background:#33CC00;
+	}
+	.floor4{
+		background:#336600;
+	}
+	.floor5{
+		background:#330000;
+	}
+	.floor6{
+		background:#00CC00;
+	}
+	.floor7{
+		background:#009900;
+	}
+	.floor8{
+		background:#006600;
+	}
+		.floor9{
+		background:#003300;
+	}
+	.floor_first{
+		width:100%;
+		height:300px;
+		text-align: center;
+		line-height: 300px;
+		background:#330033;
+		color:#fff;
+	}
+
+ul{
+	width:50px;
+	border:1px solid #fff;
+	position: fixed;
+	left:10px;
+	top:50px;
+	display:none;
+}
+ul>li{
+	width:50px;
+	height:50px;
+	line-height: 50px;
+	text-align: center;
+	position:relative;
+	font-size: 12px;
+	color:#fff;
+
+}
+ul>li:after{
+	position: absolute;
+	left:0;
+	bottom:0;
+	content:'';
+	display: inline-block;
+	width:100%;
+	height:1px;
+	background:#fff;
+}
+ul>li:last-child::after{
+	height:0;
+}
+.bg{
+	background:#FF33FF;
+}
+</style>
+</head>
+<body>
+    <ul>
+    	<li>优惠</li>
+    	<li>折扣</li>
+    	<li>香浓甜粥</li>
+    	<li>营养咸粥</li>
+    	<li>爽口凉菜</li>
+    	<li>精选套餐</li>
+    	<li>果拼果汁</li>
+    	<li>小吃主食</li>
+    	<li>特色粥品</li>
+    </ul>
+    <div id="demo">
+    	 <div class="floor_first">
+    	 	<p>导航</p>
+    	 </div>
+    	 <div class="floor floor1">
+    	 	<p>优惠</p>
+    	 </div>
+    	 <div class="floor floor2">
+    	 	<p>折扣</p>
+    	 </div>
+    	 <div class="floor floor3">
+    	 	<p>香浓甜粥</p>
+    	 </div>
+    	 <div class="floor floor4">
+    	 	<p>营养咸粥</p>
+    	 </div>
+    	 <div class="floor floor5">
+    	 	<p>爽口凉菜</p>
+    	 </div>
+    	 <div class="floor floor6">
+    	 	<p>精选套餐</p>
+    	 </div>
+    	 <div class="floor floor7">
+    	 	<p>果拼果汁</p>
+    	 </div>
+    	 <div class="floor floor8">
+    	 	<p>小吃主食</p>
+    	 </div>
+    	 <div class="floor floor9">
+    	 	<p>特色粥品</p>
+    	 </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+
+   $(document).scroll(function(){
+     var scrollH=$(document).scrollTop()
+     var itemH=scrollH-300
+     var index=Math.floor(itemH/900)
+     $('ul>li').eq(index).addClass('bg').siblings().removeClass('bg')
+     
+     if(scrollH>=300){
+	      $('ul').fadeIn()
+	     }else{
+	      $('ul').fadeOut()
+	     }
+     
+   })
+   $('ul li').click(function(){
+    $('html,body').animate({'scrollTop':$(this).index()*900+300},500)
+   })
+
+	})
+
+</script>
